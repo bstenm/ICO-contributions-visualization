@@ -1,0 +1,8 @@
+
+/.git
+/.vscode
+/build/*
+/client/config/*
+/client/scripts/*
+/coverage/
+/server/coverage/
