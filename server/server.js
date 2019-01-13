@@ -8,15 +8,14 @@ const typeDefs = `
       }
       type Contributor {
             id: ID!
-            amount: String!
+            value: String!
             currency: String!
-            country: String!
+            address: String!
       }
       input UserInput {
-            age: Int
-            amount: String
+            value: String
             currency: String
-            country: String
+            address: String
       }
 `;
 

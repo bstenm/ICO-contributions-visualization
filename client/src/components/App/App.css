@@ -1,4 +1,18 @@
 .App {
   text-align: center;
   height: 100%;
+  display: flex;
+}
+
+.App__body {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.App__body > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,0 +1,11 @@
+.SideNav {
+      border-right: 1px solid #CCC;
+      height: 100%;
+      width: 300px;
+      background: #2A2A2A;
+      color: white;
+}
+
+.SideNav h3 {
+      padding-bottom: 15px;
+}

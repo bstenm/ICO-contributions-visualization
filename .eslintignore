@@ -6,3 +6,5 @@
 /client/scripts/*
 /coverage/
 /server/coverage/
+mock-data.js
+_mock-data.js
