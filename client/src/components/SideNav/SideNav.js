@@ -1,7 +1,7 @@
 import React from 'react';
+import './SideNav.css';
 import { Link } from 'react-router-dom';
 import routes from '../../config/routes';
-import './SideNav.css';
 
 const SideNav = () => (
       <div className="SideNav">
@@ -9,6 +9,11 @@ const SideNav = () => (
             <ul>
                   <li>
                         <Link to={routes.currencyChart}>by currency</Link>
+                  </li>
+                  <li>
+                        <Link to={routes.currencyValueChart}>
+                              by currency/value
+                        </Link>
                   </li>
             </ul>
       </div>

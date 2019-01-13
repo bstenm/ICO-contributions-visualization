@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import PieChart from '../PieChart';
+import BarChart from '../BarChart';
 import routes from '../../config/routes';
-import { formatDataForPieCharts } from '../../libs/dataManipulation';
+import {
+      formatDataForPieCharts,
+      formatDataForCurrencyValueCharts,
+} from '../../libs/dataManipulation';
 
 const DataVisualization = ({ data }) => (
       <div className="DataVisualization">
@@ -20,9 +24,19 @@ const DataVisualization = ({ data }) => (
                         )}
                   />
                   <Route
+                        path={routes.currencyValueChart}
+                        render={() => (
+                              <BarChart
+                                    data={formatDataForCurrencyValueCharts(
+                                          data,
+                                    )}
+                              />
+                        )}
+                  />
+                  <Route
                         path={routes.home}
                         render={() => (
-                              <div className="intro">
+                              <div className="big-message">
                                     {' '}
                                     {data.length} contributors found
                               </div>
@@ -40,4 +54,4 @@ DataVisualization.propTypes = {
       data: PropTypes.array,
 };
 
-export default withRouter(DataVisualization);
+export default DataVisualization;

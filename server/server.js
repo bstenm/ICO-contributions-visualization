@@ -21,7 +21,8 @@ const typeDefs = `
 
 const resolvers = {
       Query: {
-            contributors: (_, { where }) => (where ? filter(data, where) : data),
+            contributors: (_, { where }) =>
+                  where ? filter(data, where) : data,
       },
 };
 

@@ -36,8 +36,8 @@ it('Displays a route pointing to the homepage', () => {
             .filterWhere(e => e.props().path === routes.home);
       expect(route).toHaveLength(1);
       const introWrapper = shallow(route.props().render());
-      expect(introWrapper.find('.intro')).toHaveLength(1);
-      expect(introWrapper.find('.intro').text()).toContain('2');
+      expect(introWrapper.find('.big-message')).toHaveLength(1);
+      expect(introWrapper.find('.big-message').text()).toContain('2');
 });
 
 // Route to pie chart
