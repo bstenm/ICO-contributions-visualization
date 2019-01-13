@@ -1,0 +1,22 @@
+.PieChartKeys {
+      width: 250px;
+      text-align: left;
+}
+
+.PieChartKeys > div {
+      margin-bottom: 8px;
+}
+
+.PieChartKeys__color {
+      width: 17px;
+      height: 17px;
+      display: inline-block;
+      margin-right: 7px;
+      position: relative;
+      top: 4px;
+}
+
+.PieChartKeys__label {
+      display: inline-block;
+      font-size: 16px;
+}

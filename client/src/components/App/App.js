@@ -3,6 +3,7 @@ import './App.css';
 import { Query } from 'react-apollo';
 import SideNav from '../SideNav';
 import queries from '../../config/queries';
+import DataVisualization from '../DataVisualization';
 
 const App = () => (
       <div className="App">
@@ -14,10 +15,18 @@ const App = () => (
                                     return <div className="loader" />;
                               }
                               if (error) {
-                                    return <div className="error">Something went wrong :(</div>;
+                                    return (
+                                          <div className="error">
+                                                Something went wrong :(
+                                          </div>
+                                    );
                               }
 
-                              return <div>{data.contributors.length}</div>;
+                              return (
+                                    <DataVisualization
+                                          data={data.contributors}
+                                    />
+                              );
                         }}
                   </Query>
             </div>

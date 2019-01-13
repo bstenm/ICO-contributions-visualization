@@ -9,3 +9,12 @@
 .SideNav h3 {
       padding-bottom: 15px;
 }
+
+.SideNav li {
+      padding: 15px;
+}
+
+.SideNav li a {
+      font-size: 19px;
+      color: #CCC;
+}

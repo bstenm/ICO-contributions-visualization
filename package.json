@@ -103,7 +103,7 @@
     "not op_mini all"
   ],
   "prettier": {
-    "printWidth": 100,
+    "printWidth": 80,
     "singleQuote": true,
     "trailingComma": "all",
     "bracketSpacing": true,
