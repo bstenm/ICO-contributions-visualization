@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+
+      ico-contributions-visualizer:
+            container_name: ico-contributions-visualizer
+            build:
+                  context: .
+                  dockerfile: Dockerfile
+            volumes:
+                  - '.:/usr/src/app'
+                  - '/usr/src/app/node_modules'
+            ports:
+                  # client
+                  - '3000:3000'
+                  # server
+                  - '4000:4000'
+            environment:
+                  - NODE_ENV=development
