@@ -22,7 +22,7 @@ After each push to the [Git](https://github.com/bstenm/ICO-contributions-visuali
 - Send the coverage report to [Coveralls](https://coveralls.io/)
 - Run the build process
 - Deploy the server to heroku
-- Deploy the client to [AWS S3](https://aws.amazon.com/s3/). It will be hosted on that link: [ICO-contributions-visualization](ico-contributions-visualizer-client.s3-website-us-east-1.amazonaws.com).
+- Deploy the client to [AWS S3](https://aws.amazon.com/s3/). It will be hosted on that link: [ICO-contributions-visualization](http://ico-contributions-visualizer-client.s3-website-us-east-1.amazonaws.com).
 
 ### Git hook
 
