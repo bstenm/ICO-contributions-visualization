@@ -18,7 +18,7 @@ install:
       - yarn add coveralls
 
 script:
-      - yarn test-client --coverage --coverageReporters=text-lcov
+      - yarn test-client --coverage --coverageReporters=text-lcov | coveralls
       - yarn build-client
 
 deploy:
@@ -28,10 +28,4 @@ deploy:
       local_dir: build
       skip_cleanup: true
       secret_access_key:
-            secure: H6zH3JMEoUiZgO1babwu8QdaAnbVPiXXMi3mE1fKDgGojVpCqJkWlBL5Ioow0dACXLFYDczUECKY1lRl+t/ZtGyoT5pPKO8mcdaE06+GavheoRECwoW609OcNDVQ3RvhZG2hnwfYVdiY6IVJRUaYXPZay1WyW6X7Z7Ll2Jt+TgZlwcKtrAlR4CUOwbnWZqvyQ9QvPJiJ5mapYD8nBLOOTVcgjwoLfokySPvEJjC8/RbeA3kxlXgXF3PVTk2ffBzqIRJ41Falclr9QHKizX3yMUwjh7B/cASSZcGBFPJEnyn27F0KFNaQCDJTCrkRUZf5BcnocjR+NxWbrHVri3OC3jHcxMHZdn9S1RAYScA3HS6cnhB5pTEmQVM7DbK/oEzGj5lEUuZHcE5NtuTB8WGF9aHst2flhdNPy75cLAvWLL76MbLig6+SVH+OB62fFNuQDTVWuJwxJFX6S5liDjzvf1xQTv9Z6ieUivr1T5pv65mETozTEWhbBs/9TPdZ014pI7TSrM5fcvJGfrIgf9Z41enio+etlb5cqWqNEBwSE8wczDu2SFucGc0lOhIHbAn+jsuCKL1qNFJ6mktJwEbrUOnpahdq8LrccvHuKeneWUOCxj/Y5mlb/HX0pYzQ+EdO1s13bKSQVIio/uo/n3JfU3MmcyJyGcXr3lTVDwZQkr8=
-
-deploy:
-      provider: heroku
-      app: ico-contributions-visualizer
-      api_key:
-            secure: JD5Uut16MJXJTV0NNuTnYlDI5D2RWoAsDAj/hg1G6lv5aNgtkL/27vsWfSSjX6f/2/3FX0FXjnDBUPHvnsqnm65NQW809fVtm8/ipuFC9r4xcL412UVqrp4E7OJj0noUqsjI2+e/w4p3PfLZYMTtWnh7XVwg4L3FvkDNfXzvn/kZQubm96lezeNO8O0NRWtDP2kHaOBLaiYsOI49gikArP4GA3+e4OmaDDDS1BQSh0xOkOv+gLfgUhnb5578XlbckUXfVguwTaFntaR40XttUDm6HrRX1SrTzMUeZi4rS6RieaZ2QznWBYLyy2JPFdIk6eJtl4Njpa2H1iYcCrQANrfXsMQarCH54sy3fI8FYIJM9mCct0ABttE3ZRjuAHr7xeuJZuAp3aQvI9DRf1DbDDX/e9DM7wbSY4mnpcQfFx1tP5/+oXFddHyi3cT8mJcyW4vPnz0p0v/wmlhmW8kQEEjNe4SSB/YdWbHYCku6A/YnTVxq1KvZg9PgJRpzUwmX31907G+YB2t2QjTppCSUZIQ5aYgFaO/NEytd/f01ZhdlfZIczLEnvET1nfWtt/JD4yOmqK9Im2Iq5jZzyGRCfmJGaSBTiWxVNo1lBt+fnVLfVhqVKHFiuwF69hdFXsZY813GuAfl2AaL8shamIoJBUX4HmLnGPF/2jN3MFmTLgY=
+            secure: Aif/KKFhg7gpkk8gOJDMvTSZNC3z7fc48IpBpvSD80CPhu1AT6+vGiFkc+NAi0uil67w2e6mYbj7dkzeHxwfU+PnzywKSlBjrpkWOgr3nuAj5uEaSvBAkUXj5C1AUM9CnFGOiRzTyVDk7FmSzUNf0oToJsKwzkXPIQRdl1ZxOLjzmM8vZRIKjLkXy3P4QZ+sHS43xXAacFF6nxqWzwIQ43AId3ZoqgtCcjqeNGR+7Ehz/uFs6sEQyHAogj5gW4z5Kf27lz8lfn4/PjKKgsknKv3rVSVmGhl7Hi4mTXIR8eFFgMPetfn62dHgkCLROpQgzkmiJYgxINx+AyZ3op5g2Rk8LAYYaIRuGs8MQnBum+Hvc/0WGIDzmYmXFDYfMU+cZtTvnYgrfwoPgBSfItE+w9Qm2K0y+9RBDysnWZGfgwxKqgk0x1dAkesuEprOd9YhjS2vRAqTZ0Xl2Yo1bfc0JGxm+C0XAxlzlD9YmOyNMQijotKQ7rDhh64fJ868JK3fqScDFc/3LWkSe0gDC7HWogbdxRUvQ7+VixWlE3TpuZhz66sCO3AWYL/kuGhXVVLeEzsMzpbZlEVy0M4Y6jDXDkxp0mx2jhW501b7yNTEcrjtGtMHl1pIDVx+CcGXI8FmDdyqVYAx0ZB8b5gVK/Nc+YgT6mNuXwvo/bMVMbx58ow=
