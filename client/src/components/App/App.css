@@ -16,3 +16,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.App__home-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #2A2A2A;
+  font-size: 18px;
+}
