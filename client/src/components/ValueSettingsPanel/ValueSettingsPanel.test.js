@@ -73,7 +73,7 @@ it('Displays a CurrencySelection component', () => {
 // CurrencySelection prop: currencyList
 it('Passes currencyList to CurrencySelection component', () => {
       expect(wrapper.find(CurrencySelection).props().currencyList).toEqual([
-            'BYC',
+            'BTC',
             'ETH',
       ]);
 });

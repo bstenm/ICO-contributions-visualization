@@ -8,12 +8,21 @@ let wrapper;
 let props;
 
 beforeEach(() => {
-      props = {};
+      props = { location: { pathname: '/home' } };
       wrapper = shallow(<SideNav {...props} />);
 });
 
 it('Displays a SideNav component', () => {
       expect(wrapper.find('.SideNav')).toHaveLength(1);
+});
+
+// Link: home
+it('Displays a Link component pointing to the home page', () => {
+      const links = wrapper
+            .find(Link)
+            .filterWhere(e => e.props().to === routes.home);
+
+      expect(links).toHaveLength(1);
 });
 
 // Link: currency
