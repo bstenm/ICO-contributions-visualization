@@ -1,6 +1,8 @@
-import { formatDataForPieCharts } from './dataManipulation';
-// [TOREMOVE]
-// import cf from '../config';
+import {
+      formatDataForPieCharts,
+      formatDataForCurrencyValueCharts,
+} from './dataManipulation';
+import cf from '../config';
 
 const data = [
       {
@@ -19,9 +21,9 @@ const data = [
 
 describe('formatDataForPieCharts', () => {
       it('Turns the data passed into data formatted for a pie chart', () => {
-            const result1 = formatDataForPieCharts(data, 'currency');
+            const result = formatDataForPieCharts(data, 'currency');
 
-            expect(result1).toEqual([
+            expect(result).toEqual([
                   {
                         color: '#F7464A',
                         highlight: '#FF5A5E',
@@ -37,3 +39,59 @@ describe('formatDataForPieCharts', () => {
             ]);
       });
 });
+
+describe('formatDataForCurrencyValueCharts', () => {
+      it('Turns the data passed into data formatted for a the curency to value bar chart', () => {
+            const result = formatDataForCurrencyValueCharts(data);
+
+            expect(result).toEqual({
+                  datasets: [
+                        Object.assign(
+                              {},
+                              { data: [3000, 1695] },
+                              cf.barChartOptions,
+                        ),
+                  ],
+                  labels: ['BTC', 'ETH'],
+            });
+      });
+});
+
+// [TOREMOVE]
+// describe('buildDataForLineCharts', () => {
+//       it('Turns the data passed into data formatted for a line chart', () => {
+//             const result = buildDataForLineCharts(data, 'age', 'value');
+
+//             const expected = {
+//                   labels: ['21', '39'],
+//                   datasets: [
+//                         Object.assign(
+//                               {},
+//                               {
+//                                     data: [2000, 2390],
+//                               },
+//                               cf.lineChartOptions,
+//                         ),
+//                   ],
+//             };
+//             expect(result).toEqual(expected);
+//       });
+
+//       it('Sets the data key in dataset to array of 0s if data key passed if erroneous', () => {
+//             const result = buildDataForLineCharts(data, 'age', 'unknown');
+
+//             const expected = {
+//                   labels: ['21', '39'],
+//                   datasets: [
+//                         Object.assign(
+//                               {},
+//                               {
+//                                     data: [0, 0],
+//                               },
+//                               cf.lineChartOptions,
+//                         ),
+//                   ],
+//             };
+//             expect(result).toEqual(expected);
+//       });
+// });

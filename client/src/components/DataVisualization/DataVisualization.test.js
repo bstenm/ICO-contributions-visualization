@@ -34,8 +34,11 @@ it('Displays a route pointing to the homepage', () => {
       const route = wrapper
             .find(Route)
             .filterWhere(e => e.props().path === routes.home);
+
       expect(route).toHaveLength(1);
+
       const introWrapper = shallow(route.props().render());
+
       expect(introWrapper.find('.big-message')).toHaveLength(1);
       expect(introWrapper.find('.big-message').text()).toContain('2');
 });
@@ -45,6 +48,7 @@ it('Displays a route pointing to the currency chart page', () => {
       const route = wrapper
             .find(Route)
             .filterWhere(e => e.props().path === routes.currencyChart);
+
       const currencyPieData = [
             {
                   color: '#F7464A',
@@ -59,6 +63,7 @@ it('Displays a route pointing to the currency chart page', () => {
                   value: 1,
             },
       ];
+
       expect(route).toHaveLength(1);
       expect(route.props().render()).toEqual(
             <PieChart data={currencyPieData} />,

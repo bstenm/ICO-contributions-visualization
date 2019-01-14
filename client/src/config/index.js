@@ -3,7 +3,7 @@ const env = process.env.NODE_ENV;
 const grapqhQLendPoint =
       env === 'development'
             ? 'http://localhost:4000'
-            : 'https://ico-contributions-visualization.herokuapp.com/';
+            : 'https://ico-contributions-visualizer.herokuapp.com/';
 
 const pieChartColors = [
       {
@@ -32,4 +32,29 @@ const pieChartColors = [
       },
 ];
 
-export default { pieChartColors, grapqhQLendPoint };
+const barChartOptions = {
+      label: 'Bar chart',
+      fillColor: 'rgba(220,220,220,0.5)',
+      strokeColor: 'rgba(220,220,220,0.8)',
+      highlightFill: 'rgba(220,220,220,0.75)',
+      highlightStroke: 'rgba(220,220,220,1)',
+};
+
+const exchangeRate = {
+      ethToBtc: 0.035,
+      ltcToBtc: 0.009,
+};
+
+const valueRange = {
+      min: 100,
+      max: 1000,
+      minGap: 100,
+};
+
+export default {
+      valueRange,
+      pieChartColors,
+      barChartOptions,
+      grapqhQLendPoint,
+      exchangeRate,
+};

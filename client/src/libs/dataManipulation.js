@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import keys from 'lodash/keys';
 import map from 'lodash/map';
+import keys from 'lodash/keys';
 import merge from 'lodash/merge';
 import groupBy from 'lodash/groupBy';
 import mapValues from 'lodash/mapValues';
@@ -57,4 +57,25 @@ export const formatDataForCurrencyValueCharts = set => {
             labels,
             datasets: [Object.assign({}, { data }, barChartOptions)],
       };
+};
+
+/**
+ * Takes a data set and convert the value key to its satoshi value according to the currency key
+ * @param {array} data
+ * @return {array}
+ */
+export const convertValueToSatoshi = data => {
+      const { exchangeRate } = cf;
+      const { ethToBtc, ltcToBtc } = exchangeRate;
+
+      return data.map(entry => {
+            const { currency, value } = entry;
+
+            // what exchange rate we should apply
+            let rate = currency === 'ETH' && ethToBtc;
+            rate = rate || (currency === 'LTC' && ltcToBtc);
+
+            // calculate the new value as satoshi
+            return { ...entry, value: parseInt(value, 10) * (rate || 1) };
+      });
 };

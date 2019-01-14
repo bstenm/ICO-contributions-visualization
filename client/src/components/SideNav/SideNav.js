@@ -2,6 +2,7 @@ import React from 'react';
 import './SideNav.css';
 import { Link } from 'react-router-dom';
 import routes from '../../config/routes';
+import ValueSettingsPanel from '../ValueSettingsPanel';
 
 const SideNav = () => (
       <div className="SideNav">
@@ -16,6 +17,7 @@ const SideNav = () => (
                         </Link>
                   </li>
             </ul>
+            <ValueSettingsPanel />
       </div>
 );
 

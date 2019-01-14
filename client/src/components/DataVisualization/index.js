@@ -1,3 +1,3 @@
-import Component from './DataVisualization';
+import Component from './DataVisualizationContainer';
 
 export default Component;
