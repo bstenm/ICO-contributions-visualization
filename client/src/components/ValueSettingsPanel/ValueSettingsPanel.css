@@ -1,4 +1,12 @@
 .ValueSettingsPanel {
       text-align: center;
       padding: 40px;
+      background: #555;
+      height: 100%;
+      font-size: 14px;
+      color: #CCC;
+}
+
+.ValueSettingsPanel__slider {
+      margin-bottom: 50px;
 }

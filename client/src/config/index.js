@@ -34,8 +34,10 @@ const pieChartColors = [
 
 const barChartOptions = {
       label: 'Bar chart',
-      fillColor: 'rgba(220,220,220,0.5)',
-      strokeColor: 'rgba(220,220,220,0.8)',
+      // fillColor: 'rgba(220,220,220,0.5)',
+      // strokeColor: 'rgba(220,220,220,0.8)',
+      fillColor: 'rgba(70,191,189,0.3)',
+      strokeColor: 'rgba(70,191,189,0.3)',
       highlightFill: 'rgba(220,220,220,0.75)',
       highlightStroke: 'rgba(220,220,220,1)',
 };

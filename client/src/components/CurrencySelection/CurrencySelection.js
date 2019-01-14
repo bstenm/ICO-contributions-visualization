@@ -5,6 +5,7 @@ import cf from '../../config';
 
 const CurrencySelection = ({ currencyList, onClickCheckbox }) => (
       <div className="CurrencySelection">
+            <p>Select currencies</p>
             <FormGroup>
                   {cf.currencyList.map(label => (
                         <Checkbox

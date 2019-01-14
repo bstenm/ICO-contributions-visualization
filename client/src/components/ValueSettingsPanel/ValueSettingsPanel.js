@@ -16,15 +16,17 @@ const ValueSettingsPanel = ({
       currencyList,
 }) => (
       <div className="ValueSettingsPanel">
-            <p>
-                  Value range (in Satoshi) <br /> [{minValue}, {maxValue}]
-            </p>
-            <Range
-                  min={min}
-                  max={rangeMax}
-                  defaultValue={[min, rangeMax]}
-                  onChange={onChange}
-            />
+            <div className="ValueSettingsPanel__slider">
+                  <p>
+                        Value range (in Satoshi) <br /> [{minValue}, {maxValue}]
+                  </p>
+                  <Range
+                        min={min}
+                        max={rangeMax}
+                        defaultValue={[min, rangeMax]}
+                        onChange={onChange}
+                  />
+            </div>
             <CurrencySelection
                   currencyList={currencyList}
                   onClickCheckbox={onClickCheckbox}

@@ -17,3 +17,16 @@
       font-size: 19px;
       color: #CCC;
 }
+
+.SideNav_links {
+      margin-bottom: 40px;
+}
+
+.SideNav_links .icon {
+      margin-left: -20px;
+      font-size: 14px;
+}
+
+.SideNav__top-panel {
+      height: 50%;
+}

@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router-dom';
 import Component from './SideNav';
 
-export default Component;
+export default withRouter(Component);
