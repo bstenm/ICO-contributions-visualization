@@ -1,8 +1,8 @@
 import React from 'react';
 import { Range } from 'rc-slider';
 import { shallow } from 'enzyme';
-import { Checkbox } from 'react-bootstrap';
 import ValueSettingsPanel from './ValueSettingsPanel';
+import CurrencySelection from '../CurrencySelection';
 
 jest.mock('../../config', () => ({
       valueRange: {
@@ -16,7 +16,8 @@ let props;
 
 beforeEach(() => {
       props = {
-            rangeMax: 3000,
+            range: [2345, 10567],
+            rangeMax: 30000,
             currencyList: ['BTC', 'ETH'],
             onChange: jest.fn(),
             onClickCheckbox: jest.fn(),
@@ -26,6 +27,12 @@ beforeEach(() => {
 
 it('Displays a ValueSettingsPanel', () => {
       expect(wrapper.find('.ValueSettingsPanel')).toHaveLength(1);
+});
+
+// the range being selected
+it('Displays a the range being selected component', () => {
+      expect(wrapper.find('.ValueSettingsPanel').text()).toContain(2345);
+      expect(wrapper.find('.ValueSettingsPanel').text()).toContain(10567);
 });
 
 it('Displays a Range component', () => {
@@ -39,12 +46,12 @@ it('Passes the min range value to Range component', () => {
 
 // Range prop: max
 it('Passes the max range value to Range component', () => {
-      expect(wrapper.find(Range).props().max).toEqual(3000);
+      expect(wrapper.find(Range).props().max).toEqual(30000);
 });
 
 // Range prop: defaultValue
 it('Passes the default values for the slider to Range component', () => {
-      expect(wrapper.find(Range).props().defaultValue).toEqual([100, 3000]);
+      expect(wrapper.find(Range).props().defaultValue).toEqual([100, 30000]);
 });
 
 // Range prop: onChange
@@ -58,32 +65,26 @@ it('Passes a cb prop to handle the range value change to Range component', () =>
       expect(props.onChange).toHaveBeenCalledWith('arg');
 });
 
-// Checkbox
-it('Displays a Checkbox component for each item in the currency list set in the config', () => {
-      expect(wrapper.find(Checkbox)).toHaveLength(3);
+// CurrencySelection
+it('Displays a CurrencySelection component', () => {
+      expect(wrapper.find(CurrencySelection)).toHaveLength(1);
 });
 
-// Checkbox prop: defaultChecked
-it('Passes defaultChecked set to whether currency is present in the redux store array to the Checkbox components', () => {
-      const checkbox = i => wrapper.find(Checkbox).at(i);
-
-      // for ETH
-      expect(checkbox(1).props().defaultChecked).toEqual(true);
-      // for LTC
-      expect(checkbox(2).props().defaultChecked).toEqual(false);
+// CurrencySelection prop: currencyList
+it('Passes currencyList to CurrencySelection component', () => {
+      expect(wrapper.find(CurrencySelection).props().currencyList).toEqual([
+            'BYC',
+            'ETH',
+      ]);
 });
 
-//  Checkbox prop: onClick
-it('Passes a cb prop to handle checkboxes click to Range component', () => {
+// CurrencySelection prop: onClickCheckbox
+it('Passes a cb prop to handle the checkbox click event to CurrencySelection component', () => {
       wrapper
-            .find(Checkbox)
-            .at(1)
+            .find(CurrencySelection)
             .props()
-            .onClick({ target: { checked: true } });
+            .onClickCheckbox('arg');
 
       expect(props.onClickCheckbox).toHaveBeenCalledTimes(1);
-      expect(props.onClickCheckbox).toHaveBeenCalledWith({
-            checked: true,
-            label: 'ETH',
-      });
+      expect(props.onClickCheckbox).toHaveBeenCalledWith('arg');
 });

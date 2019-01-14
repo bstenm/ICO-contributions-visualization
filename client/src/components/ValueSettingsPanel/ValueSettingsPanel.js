@@ -1,14 +1,15 @@
 import React from 'react';
 import { Range } from 'rc-slider';
 import PropTypes from 'prop-types';
-import { FormGroup, Checkbox } from 'react-bootstrap';
 import cf from '../../config';
+import CurrencySelection from '../CurrencySelection';
 import 'rc-slider/assets/index.css';
 import './ValueSettingsPanel.css';
 
 const { min } = cf.valueRange;
 
 const ValueSettingsPanel = ({
+      range: [minValue, maxValue],
       rangeMax,
       onChange,
       onClickCheckbox,
@@ -16,7 +17,7 @@ const ValueSettingsPanel = ({
 }) => (
       <div className="ValueSettingsPanel">
             <p>
-                  Value range to inspect <br /> (in Satoshi)
+                  Value range (in Satoshi) <br /> [{minValue}, {maxValue}]
             </p>
             <Range
                   min={min}
@@ -24,24 +25,15 @@ const ValueSettingsPanel = ({
                   defaultValue={[min, rangeMax]}
                   onChange={onChange}
             />
-            <FormGroup>
-                  {cf.currencyList.map(label => (
-                        <Checkbox
-                              key={label}
-                              defaultChecked={currencyList.includes(label)}
-                              onClick={({ target: { checked } }) =>
-                                    onClickCheckbox({ label, checked })
-                              }
-                              inline
-                        >
-                              {label}
-                        </Checkbox>
-                  ))}
-            </FormGroup>
+            <CurrencySelection
+                  currencyList={currencyList}
+                  onClickCheckbox={onClickCheckbox}
+            />
       </div>
 );
 
 ValueSettingsPanel.propTypes = {
+      range: PropTypes.arrayOf(PropTypes.number).isRequired,
       rangeMax: PropTypes.number.isRequired,
       onChange: PropTypes.func.isRequired,
       currencyList: PropTypes.array.isRequired,

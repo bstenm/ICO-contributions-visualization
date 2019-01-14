@@ -20,6 +20,7 @@ export class ValueSettingsPanelContainer extends React.Component {
             return (
                   !!this.props.rangeMax && (
                         <ValueSettingsPanel
+                              range={this.props.range}
                               onChange={this.onChange}
                               rangeMax={this.props.rangeMax}
                               currencyList={this.props.currencyList}
@@ -31,6 +32,7 @@ export class ValueSettingsPanelContainer extends React.Component {
 }
 
 ValueSettingsPanelContainer.propTypes = {
+      range: PropTypes.arrayOf(PropTypes.number).isRequired,
       rangeMax: PropTypes.number.isRequired,
       currencyList: PropTypes.array.isRequired,
       setValueRange: PropTypes.func.isRequired,
@@ -38,9 +40,10 @@ ValueSettingsPanelContainer.propTypes = {
 };
 
 export default connect(
-      ({ valueRange: { max }, currencyList }) => ({
-            rangeMax: max,
+      ({ valueRange: { max, range }, currencyList }) => ({
+            range,
             currencyList,
+            rangeMax: max,
       }),
       { setValueRange, setCurrencyList },
 )(ValueSettingsPanelContainer);

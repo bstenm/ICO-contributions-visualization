@@ -14,6 +14,7 @@ let wrapper;
 
 beforeEach(() => {
       props = {
+            range: [125, 2454],
             rangeMax: 3000,
             currencyList: ['BTC', 'ETH'],
             setValueRange: jest.fn(),
@@ -29,6 +30,14 @@ it('Does not display anything if no rangeMax passed yet', () => {
 
 it('Displays a ValueSettingsPanel component', () => {
       expect(wrapper.find(ValueSettingsPanel)).toHaveLength(1);
+});
+
+//  prop: range
+it('Passes the range selected to ValueSettingsPanel component', () => {
+      expect(wrapper.find(ValueSettingsPanel).props().range).toEqual([
+            125,
+            2454,
+      ]);
 });
 
 //  prop: rangeMax

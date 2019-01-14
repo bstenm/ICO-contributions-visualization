@@ -2,6 +2,7 @@
 /.git
 /.vscode
 /build/*
+/bash/*
 /client/config/*
 /client/scripts/*
 /coverage/

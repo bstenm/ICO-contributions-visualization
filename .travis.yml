@@ -24,7 +24,7 @@ script:
 deploy:
       provider: s3
       access_key_id: AKIAJUERDPZC5WLZK7OA
-      bucket: ico-contributions-visualization-client
+      bucket: ico-contributions-visualizer-client
       local_dir: build
       skip_cleanup: true
       secret_access_key:
@@ -32,6 +32,6 @@ deploy:
 
 deploy:
       provider: heroku
-      app: ico-contributions-visualization
+      app: ico-contributions-visualizer
       api_key:
             secure: JD5Uut16MJXJTV0NNuTnYlDI5D2RWoAsDAj/hg1G6lv5aNgtkL/27vsWfSSjX6f/2/3FX0FXjnDBUPHvnsqnm65NQW809fVtm8/ipuFC9r4xcL412UVqrp4E7OJj0noUqsjI2+e/w4p3PfLZYMTtWnh7XVwg4L3FvkDNfXzvn/kZQubm96lezeNO8O0NRWtDP2kHaOBLaiYsOI49gikArP4GA3+e4OmaDDDS1BQSh0xOkOv+gLfgUhnb5578XlbckUXfVguwTaFntaR40XttUDm6HrRX1SrTzMUeZi4rS6RieaZ2QznWBYLyy2JPFdIk6eJtl4Njpa2H1iYcCrQANrfXsMQarCH54sy3fI8FYIJM9mCct0ABttE3ZRjuAHr7xeuJZuAp3aQvI9DRf1DbDDX/e9DM7wbSY4mnpcQfFx1tP5/+oXFddHyi3cT8mJcyW4vPnz0p0v/wmlhmW8kQEEjNe4SSB/YdWbHYCku6A/YnTVxq1KvZg9PgJRpzUwmX31907G+YB2t2QjTppCSUZIQ5aYgFaO/NEytd/f01ZhdlfZIczLEnvET1nfWtt/JD4yOmqK9Im2Iq5jZzyGRCfmJGaSBTiWxVNo1lBt+fnVLfVhqVKHFiuwF69hdFXsZY813GuAfl2AaL8shamIoJBUX4HmLnGPF/2jN3MFmTLgY=

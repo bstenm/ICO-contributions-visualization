@@ -1,5 +1,5 @@
 {
-  "name": "ico-contributions-visualization",
+  "name": "ico-contributions-visualizer",
   "author": "Bertrand Steinmetz",
   "version": "0.1.0",
   "description": "An app to visualize ico contributions data",
@@ -61,6 +61,7 @@
     "react-dom": "^16.6.3",
     "react-redux": "6.0.0",
     "react-router-dom": "4.3.1",
+    "react-slider": "0.11.2",
     "redux": "4.0.1",
     "resolve": "1.8.1",
     "safe-graphql-yoga": "0.0.0-semantic-release",
@@ -81,7 +82,7 @@
     "lint": "eslint --debug client/src/ server/",
     "lint-write": "eslint --debug client/src/ server/ --fix",
     "prettier": "prettier --write client/src/**/*.js server/*.js",
-    "watch-server": "NODE_ENV=development pm2-dev server/index.js",
+    "watch-server": "pm2-dev start pm2.json",
     "test-server": "NODE_ENV=test jest --forceExit --config jest.config.server.json",
     "start": "node server/index.js",
     "watch-server-debug": "NODE_ENV=development nodemon --inspect server/index.js",
