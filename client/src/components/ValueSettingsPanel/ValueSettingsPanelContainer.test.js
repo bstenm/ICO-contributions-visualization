@@ -15,7 +15,9 @@ let wrapper;
 beforeEach(() => {
       props = {
             rangeMax: 3000,
+            currencyList: ['BTC', 'ETH'],
             setValueRange: jest.fn(),
+            setCurrencyList: jest.fn(),
       };
       wrapper = shallow(<ValueSettingsPanelContainer {...props} />);
 });
@@ -32,6 +34,14 @@ it('Displays a ValueSettingsPanel component', () => {
 //  prop: rangeMax
 it('Passes the range max selected to ValueSettingsPanel component', () => {
       expect(wrapper.find(ValueSettingsPanel).props().rangeMax).toEqual(3000);
+});
+
+//  prop: currenList
+it('Passes the currency list selected to ValueSettingsPanel component', () => {
+      expect(wrapper.find(ValueSettingsPanel).props().currencyList).toEqual([
+            'BTC',
+            'ETH',
+      ]);
 });
 
 // ValueSettingsPanel prop: onChange
@@ -53,4 +63,15 @@ it('Does not call the action to set the value range when the range is inferior t
             .onChange([100, 150]);
 
       expect(props.setValueRange).toHaveBeenCalledTimes(0);
+});
+
+//  prop: onClickCheckbox
+it('Calls the action to set currency list to ValueSettingsPanel component', () => {
+      wrapper
+            .find(ValueSettingsPanel)
+            .props()
+            .onClickCheckbox('arg');
+
+      expect(props.setCurrencyList).toHaveBeenCalledTimes(1);
+      expect(props.setCurrencyList).toHaveBeenCalledWith('arg');
 });

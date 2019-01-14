@@ -6,6 +6,7 @@ export default {
                   contributors(where: $where) {
                         value
                         currency
+                        address
                   }
             }
       `,

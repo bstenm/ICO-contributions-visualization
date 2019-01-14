@@ -43,6 +43,7 @@ describe('(Container) DataVisualization', () => {
             props = {
                   data,
                   range: [1000, 3000],
+                  currencyList: ['BTC', 'ETH'],
                   setRangeMax: jest.fn(),
             };
             wrapper = shallow(<DataVisualizationContainer {...props} />);

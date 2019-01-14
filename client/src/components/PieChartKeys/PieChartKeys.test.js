@@ -31,6 +31,7 @@ it('Displays a PieChartKeys component', () => {
 // key
 it('Displays a key that displays a label and value for each entry in the data passed', () => {
       const key = wrapper.find('.key');
+
       expect(key).toHaveLength(2);
       // label
       expect(key.at(1).text()).toContain('ETH');

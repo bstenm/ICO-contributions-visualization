@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import maxBy from 'lodash/maxBy';
 import { withRouter } from 'react-router-dom';
 import { setRangeMax } from '../../actions/valueRange';
+import { setCurrencyList } from '../../actions/currencyList';
 import DataVisualization from './DataVisualization';
 import { convertValueToSatoshi } from '../../libs/dataManipulation';
 
@@ -23,7 +24,12 @@ export class DataVisualizationContainer extends React.Component {
 
             // 1.filter out the items whose currency in not selected
             // 2.filter out the items whose values are outside the range set
-            const set = this.set.filter(e => e.value >= min && e.value <= max);
+            const set = this.set.filter(
+                  e =>
+                        this.props.currencyList.includes(e.currency) &&
+                        e.value >= min &&
+                        e.value <= max,
+            );
 
             return !set.length ? (
                   <div className="big-message">No data found</div>
@@ -40,14 +46,16 @@ DataVisualizationContainer.defaultProps = {
 DataVisualizationContainer.propTypes = {
       data: PropTypes.array,
       range: PropTypes.array.isRequired,
+      currencyList: PropTypes.array.isRequired,
       setRangeMax: PropTypes.func.isRequired,
 };
 
 export default withRouter(
       connect(
-            ({ valueRange: { range } }) => ({
+            ({ valueRange: { range }, currencyList }) => ({
                   range,
+                  currencyList,
             }),
-            { setRangeMax },
+            { setRangeMax, setCurrencyList },
       )(DataVisualizationContainer),
 );

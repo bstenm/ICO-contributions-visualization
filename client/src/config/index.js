@@ -51,8 +51,11 @@ const valueRange = {
       minGap: 100,
 };
 
+const currencyList = ['BTC', 'ETH', 'LTC'];
+
 export default {
       valueRange,
+      currencyList,
       pieChartColors,
       barChartOptions,
       grapqhQLendPoint,

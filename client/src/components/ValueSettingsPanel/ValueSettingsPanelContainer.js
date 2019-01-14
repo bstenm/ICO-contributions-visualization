@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setValueRange } from '../../actions/valueRange';
+import { setCurrencyList } from '../../actions/currencyList';
 import ValueSettingsPanel from './ValueSettingsPanel';
 import cf from '../../config';
 
@@ -21,6 +22,8 @@ export class ValueSettingsPanelContainer extends React.Component {
                         <ValueSettingsPanel
                               onChange={this.onChange}
                               rangeMax={this.props.rangeMax}
+                              currencyList={this.props.currencyList}
+                              onClickCheckbox={this.props.setCurrencyList}
                         />
                   )
             );
@@ -29,12 +32,15 @@ export class ValueSettingsPanelContainer extends React.Component {
 
 ValueSettingsPanelContainer.propTypes = {
       rangeMax: PropTypes.number.isRequired,
+      currencyList: PropTypes.array.isRequired,
       setValueRange: PropTypes.func.isRequired,
+      setCurrencyList: PropTypes.func.isRequired,
 };
 
 export default connect(
-      ({ valueRange: { max } }) => ({
+      ({ valueRange: { max }, currencyList }) => ({
             rangeMax: max,
+            currencyList,
       }),
-      { setValueRange },
+      { setValueRange, setCurrencyList },
 )(ValueSettingsPanelContainer);

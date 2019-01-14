@@ -1,8 +1,32 @@
 import {
+      convertValueToSatoshi,
       formatDataForPieCharts,
       formatDataForCurrencyValueCharts,
 } from './dataManipulation';
-import cf from '../config';
+
+jest.mock('../config', () => ({
+      barChartOptions: {
+            some: 'bar chart options',
+      },
+      pieChartColors: [
+            {
+                  color: '#F7464A',
+                  highlight: '#FF5A5E',
+            },
+            {
+                  color: '#46BFBD',
+                  highlight: '#5AD3D1',
+            },
+            {
+                  color: '#FDB45C',
+                  highlight: '#FFC870',
+            },
+      ],
+      exchangeRate: {
+            ethToBtc: 0.05,
+            ltcToBtc: 0.01,
+      },
+}));
 
 const data = [
       {
@@ -16,6 +40,10 @@ const data = [
       {
             currency: 'ETH',
             value: 2390,
+      },
+      {
+            currency: 'LTC',
+            value: 4590,
       },
 ];
 
@@ -36,6 +64,12 @@ describe('formatDataForPieCharts', () => {
                         label: 'ETH',
                         value: 2,
                   },
+                  {
+                        color: '#FDB45C',
+                        highlight: '#FFC870',
+                        label: 'LTC',
+                        value: 1,
+                  },
             ]);
       });
 });
@@ -48,12 +82,35 @@ describe('formatDataForCurrencyValueCharts', () => {
                   datasets: [
                         Object.assign(
                               {},
-                              { data: [3000, 1695] },
-                              cf.barChartOptions,
+                              { data: [3000, 1695, 4590] },
+                              { some: 'bar chart options' },
                         ),
                   ],
-                  labels: ['BTC', 'ETH'],
+                  labels: ['BTC', 'ETH', 'LTC'],
             });
+      });
+});
+
+describe('convertValueToSatoshi', () => {
+      it('Changes all values in data set into satoshis according to exchange rate set in config', () => {
+            expect(convertValueToSatoshi(data)).toEqual([
+                  {
+                        currency: 'BTC',
+                        value: 3000,
+                  },
+                  {
+                        currency: 'ETH',
+                        value: 1000 * 0.05,
+                  },
+                  {
+                        currency: 'ETH',
+                        value: 2390 * 0.05,
+                  },
+                  {
+                        currency: 'LTC',
+                        value: 4590 * 0.01,
+                  },
+            ]);
       });
 });
 

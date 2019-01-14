@@ -37,10 +37,7 @@ export const formatDataForCurrencyValueCharts = set => {
       // transform set into { <label>: <average value of the data key in array of entries>}
       const labelToAverageData = mapValues(grouped, entry => {
             const totalAmount = entry.reduce((result, { value }) => {
-                  if (value) {
-                        result += parseInt(value, 10);
-                  }
-
+                  result += parseInt(value, 10);
                   return result;
             }, 0);
             // return the average value

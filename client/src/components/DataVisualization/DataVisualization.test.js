@@ -2,8 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
 import PieChart from '../PieChart';
+import BarChart from '../BarChart';
 import routes from '../../config/routes';
 import DataVisualization from './DataVisualization';
+import cf from '../../config';
 
 const data = [
       {
@@ -67,5 +69,24 @@ it('Displays a route pointing to the currency chart page', () => {
       expect(route).toHaveLength(1);
       expect(route.props().render()).toEqual(
             <PieChart data={currencyPieData} />,
+      );
+});
+
+// Route to bar chart
+it('Displays a route pointing to the currency/value chart page', () => {
+      const route = wrapper
+            .find(Route)
+            .filterWhere(e => e.props().path === routes.currencyValueChart);
+
+      const currencyValueData = {
+            labels: ['BTC', 'ETH'],
+            datasets: [
+                  Object.assign({}, { data: [3056, 952] }, cf.barChartOptions),
+            ],
+      };
+
+      expect(route).toHaveLength(1);
+      expect(route.props().render()).toEqual(
+            <BarChart data={currencyValueData} />,
       );
 });
