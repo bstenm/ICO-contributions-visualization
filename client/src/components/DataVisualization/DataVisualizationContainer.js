@@ -16,7 +16,9 @@ export class DataVisualizationContainer extends React.Component {
             this.set = convertValueToSatoshi(this.props.data);
 
             // set the max value of satoshi found in the set in the redux store
-            this.props.setRangeMax(maxBy(this.set, o => o.value).value);
+            this.props.setRangeMax(
+                  Math.round(maxBy(this.set, o => o.value).value),
+            );
       }
 
       render() {
