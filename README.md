@@ -1,7 +1,7 @@
 
 A cross-country route planner without 3rd party libraries.
 
-[![Build Status](https://travis-ci.org/bstenm/ico-contributions-visualization.svg?branch=master)](https://travis-ci.org/bstenm/ico-contributions-visualization) [![Coverage Status](https://coveralls.io/repos/github/bstenm/ico-contributions-visualization-draft/badge.svg?branch=master)](https://coveralls.io/github/bstenm/ico-contributions-visualization?branch=master) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=bstenm/ico-contributions-visualization)](https://dependabot.com)
+[![Build Status](https://travis-ci.org/bstenm/ICO-contributions-visualization.svg?branch=master)](https://travis-ci.org/bstenm/ICO-contributions-visualization) [![Coverage Status](https://coveralls.io/repos/github/bstenm/ICO-contributions-visualization-draft/badge.svg?branch=master)](https://coveralls.io/github/bstenm/ICO-contributions-visualization?branch=master) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=bstenm/ICO-contributions-visualization)](https://dependabot.com)
 
 ## Demo
 
@@ -21,7 +21,7 @@ The tests are written using limited nesting (few "describe" blocks) and the set 
 
 ### Continuous Integration
 
-After each push to the [Git](https://github.com/bstenm/ico-contributions-visualization) repository [Travis](https://travis.org) will"
+After each push to the [Git](https://github.com/bstenm/ICO-contributions-visualization) repository [Travis](https://travis.org) will"
 - Run the tests
 - Send the coverage report to [Coveralls](https://coveralls.io/)
 - Run the build process
