@@ -3,10 +3,6 @@ A cross-country route planner without 3rd party libraries.
 
 [![Build Status](https://travis-ci.org/bstenm/ICO-contributions-visualization.svg?branch=master)](https://travis-ci.org/bstenm/ICO-contributions-visualization) [![Coverage Status](https://coveralls.io/repos/github/bstenm/ICO-contributions-visualization/badge.svg?branch=master)](https://coveralls.io/github/bstenm/ICO-contributions-visualization?branch=master)
 
-## Demo
-
-Click here for a [Youtube video demo](https://www.youtube.com/)
-
 ## Design Choices
 
 ### State mangement

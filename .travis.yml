@@ -22,6 +22,15 @@ script:
       - yarn build-client
 
 deploy:
+      provider: s3
+      access_key_id: AKIAJUERDPZC5WLZK7OA
+      bucket: ico-contributions-visualizer-client
+      local_dir: build
+      skip_cleanup: true
+      secret_access_key:
+            secure: H6zH3JMEoUiZgO1babwu8QdaAnbVPiXXMi3mE1fKDgGojVpCqJkWlBL5Ioow0dACXLFYDczUECKY1lRl+t/ZtGyoT5pPKO8mcdaE06+GavheoRECwoW609OcNDVQ3RvhZG2hnwfYVdiY6IVJRUaYXPZay1WyW6X7Z7Ll2Jt+TgZlwcKtrAlR4CUOwbnWZqvyQ9QvPJiJ5mapYD8nBLOOTVcgjwoLfokySPvEJjC8/RbeA3kxlXgXF3PVTk2ffBzqIRJ41Falclr9QHKizX3yMUwjh7B/cASSZcGBFPJEnyn27F0KFNaQCDJTCrkRUZf5BcnocjR+NxWbrHVri3OC3jHcxMHZdn9S1RAYScA3HS6cnhB5pTEmQVM7DbK/oEzGj5lEUuZHcE5NtuTB8WGF9aHst2flhdNPy75cLAvWLL76MbLig6+SVH+OB62fFNuQDTVWuJwxJFX6S5liDjzvf1xQTv9Z6ieUivr1T5pv65mETozTEWhbBs/9TPdZ014pI7TSrM5fcvJGfrIgf9Z41enio+etlb5cqWqNEBwSE8wczDu2SFucGc0lOhIHbAn+jsuCKL1qNFJ6mktJwEbrUOnpahdq8LrccvHuKeneWUOCxj/Y5mlb/HX0pYzQ+EdO1s13bKSQVIio/uo/n3JfU3MmcyJyGcXr3lTVDwZQkr8=
+
+deploy:
       provider: heroku
       app: ico-contributions-visualizer
       api_key:
