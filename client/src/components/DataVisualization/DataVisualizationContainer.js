@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import maxBy from 'lodash/maxBy';
 import { withRouter } from 'react-router-dom';
-import { setRangeMax } from '../../actions/valueRange';
+import { setMaxValue } from '../../actions/value';
 import { setCurrencyList } from '../../actions/currencyList';
 import DataVisualization from './DataVisualization';
 import { convertValueToSatoshi } from '../../libs/dataManipulation';
@@ -16,7 +16,7 @@ export class DataVisualizationContainer extends React.Component {
             this.set = convertValueToSatoshi(this.props.data);
 
             // set the max value of satoshi found in the set in the redux store
-            this.props.setRangeMax(
+            this.props.setMaxValue(
                   Math.round(maxBy(this.set, o => o.value).value),
             );
       }
@@ -49,15 +49,15 @@ DataVisualizationContainer.propTypes = {
       data: PropTypes.array,
       range: PropTypes.array.isRequired,
       currencyList: PropTypes.array.isRequired,
-      setRangeMax: PropTypes.func.isRequired,
+      setMaxValue: PropTypes.func.isRequired,
 };
 
 export default withRouter(
       connect(
-            ({ valueRange: { range }, currencyList }) => ({
+            ({ value: { range }, currencyList }) => ({
                   range,
                   currencyList,
             }),
-            { setRangeMax, setCurrencyList },
+            { setMaxValue, setCurrencyList },
       )(DataVisualizationContainer),
 );

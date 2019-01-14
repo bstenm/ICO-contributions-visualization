@@ -1,9 +1,9 @@
-import { setRangeMax, setValueRange } from './valueRange';
+import { setMaxValue, setValueRange } from './value';
 import { SET_RANGE_MAX, SET_VALUE_RANGE } from '../config/action-types';
 
-describe('setRangeMax', () => {
+describe('setMaxValue', () => {
       it('Returns an action for setting the range max', () => {
-            expect(setRangeMax('payload')).toEqual({
+            expect(setMaxValue('payload')).toEqual({
                   type: SET_RANGE_MAX,
                   payload: 'payload',
             });

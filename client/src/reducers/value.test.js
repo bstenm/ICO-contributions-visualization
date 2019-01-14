@@ -1,4 +1,4 @@
-import reducer from './valueRange';
+import reducer from './value';
 import { SET_RANGE_MAX, SET_VALUE_RANGE } from '../config/action-types';
 
 it('Returns the state unchanged if action type is unknown', () => {

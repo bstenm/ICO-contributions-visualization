@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setValueRange } from '../../actions/valueRange';
+import { setValueRange } from '../../actions/value';
 import { setCurrencyList } from '../../actions/currencyList';
 import ValueSettingsPanel from './ValueSettingsPanel';
 import cf from '../../config';
@@ -40,7 +40,7 @@ ValueSettingsPanelContainer.propTypes = {
 };
 
 export default connect(
-      ({ valueRange: { max, range }, currencyList }) => ({
+      ({ value: { max, range }, currencyList }) => ({
             range,
             currencyList,
             rangeMax: max,

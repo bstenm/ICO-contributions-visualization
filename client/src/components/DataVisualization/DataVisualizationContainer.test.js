@@ -44,14 +44,14 @@ describe('(Container) DataVisualization', () => {
                   data,
                   range: [1000, 3000],
                   currencyList: ['BTC', 'ETH'],
-                  setRangeMax: jest.fn(),
+                  setMaxValue: jest.fn(),
             };
             wrapper = shallow(<DataVisualizationContainer {...props} />);
       });
 
       it('Calls an action to set the range max in redux store', () => {
-            expect(props.setRangeMax).toHaveBeenCalledTimes(1);
-            expect(props.setRangeMax).toHaveBeenCalledWith(20000);
+            expect(props.setMaxValue).toHaveBeenCalledTimes(1);
+            expect(props.setMaxValue).toHaveBeenCalledWith(20000);
       });
 
       it('Displays a DataVisualization component', () => {
