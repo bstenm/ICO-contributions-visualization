@@ -45,7 +45,7 @@ export const formatDataForCurrencyValueCharts = set => {
       });
 
       // gives array of labels
-      const labels = keys(labelToAverageData);
+      const labels = keys(labelToAverageData).sort();
 
       // gives array of average value of data
       const data = labels.map(label => labelToAverageData[label]);
