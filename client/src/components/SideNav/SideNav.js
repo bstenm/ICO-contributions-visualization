@@ -14,6 +14,17 @@ const SideNav = ({ location: { pathname } }) => (
                   <div className="SideNav_links">
                         <ul>
                               <li>
+                                    <Link to={routes.home}>
+                                          {pathname === routes.home && (
+                                                <Glyphicon
+                                                      glyph="triangle-right"
+                                                      className="icon"
+                                                />
+                                          )}{' '}
+                                          total number
+                                    </Link>
+                              </li>
+                              <li>
                                     <Link to={routes.currencyChart}>
                                           {pathname ===
                                                 routes.currencyChart && (
